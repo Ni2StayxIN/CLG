@@ -1,0 +1,39 @@
+@echo off
+echo 开始下载项目依赖...
+
+REM 创建lib目录（使用Windows兼容的命令）
+if not exist lib mkdir lib
+echo 已创建lib目录
+
+REM 下载Tomcat核心依赖
+echo 下载Tomcat依赖...
+curl -o lib\tomcat-embed-core-10.1.7.jar https://repo1.maven.org/maven2/org/apache/tomcat/embed/tomcat-embed-core/10.1.7/tomcat-embed-core-10.1.7.jar
+if exist lib\tomcat-embed-core-10.1.7.jar (
+    echo Tomcat核心依赖下载成功
+) else (
+    echo Tomcat核心依赖下载失败
+)
+
+curl -o lib\tomcat-embed-jasper-10.1.7.jar https://repo1.maven.org/maven2/org/apache/tomcat/embed/tomcat-embed-jasper/10.1.7/tomcat-embed-jasper-10.1.7.jar
+curl -o lib\tomcat-embed-el-10.1.7.jar https://repo1.maven.org/maven2/org/apache/tomcat/embed/tomcat-embed-el/10.1.7/tomcat-embed-el-10.1.7.jar
+
+REM 下载JSP API
+echo 下载JSP API...
+curl -o lib\javax.servlet.jsp-api-3.1.0.jar https://repo1.maven.org/maven2/javax/servlet/jsp/javax.servlet.jsp-api/3.1.0/javax.servlet.jsp-api-3.1.0.jar
+
+REM 下载Servlet API
+echo 下载Servlet API...
+curl -o lib\jakarta.servlet-api-6.0.0.jar https://repo1.maven.org/maven2/jakarta/servlet/jakarta.servlet-api/6.0.0/jakarta.servlet-api-6.0.0.jar
+
+REM 下载MySQL驱动
+echo 下载MySQL驱动...
+curl -o lib\mysql-connector-j-8.0.33.jar https://repo1.maven.org/maven2/com/mysql/mysql-connector-j/8.0.33/mysql-connector-j-8.0.33.jar
+
+REM 下载JSTL库
+echo 下载JSTL库...
+curl -o lib\javax.servlet.jsp.jstl-1.2.1.jar https://repo1.maven.org/maven2/javax/servlet/jsp/jstl/javax.servlet.jsp.jstl/1.2.1/javax.servlet.jsp.jstl-1.2.1.jar
+curl -o lib\taglibs-standard-impl-1.2.5.jar https://repo1.maven.org/maven2/org/apache/taglibs/taglibs-standard-impl/1.2.5/taglibs-standard-impl-1.2.5.jar
+curl -o lib\taglibs-standard-spec-1.2.5.jar https://repo1.maven.org/maven2/org/apache/taglibs/taglibs-standard-spec/1.2.5/taglibs-standard-spec-1.2.5.jar
+
+echo 依赖下载完成！
+dir lib

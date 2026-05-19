@@ -1,0 +1,8 @@
+.idea/
+.trae/
+.vscode/
+target/
+*.class
+*.jar
+*.log
+tomcat.8081/
